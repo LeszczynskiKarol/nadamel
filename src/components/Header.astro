@@ -1,0 +1,120 @@
+---
+const navItems = [
+  { href: '/', label: 'Główna' },
+  { href: '#oferta', label: 'Oferta' },
+  { href: '#onas', label: 'O nas' },
+  { href: '/drzwi-wewnetrzne', label: 'Drzwi' },
+  { href: '/fronty-meblowe', label: 'Fronty meblowe' },
+  { href: '/lakierowanie', label: 'Lakierowanie' },
+  { href: '#kontakt', label: 'Kontakt' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+  <!-- Top Bar -->
+  <div class="bg-wood-800 text-white py-2">
+    <div class="section-container">
+      <div class="flex flex-wrap justify-between items-center text-sm">
+        <div class="flex flex-wrap gap-4 md:gap-6">
+          <a href="tel:577708677" class="flex items-center gap-2 hover:text-wood-200 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            577 708 677
+          </a>
+          <a href="mailto:biuro@nadamel.pl" class="flex items-center gap-2 hover:text-wood-200 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            biuro@nadamel.pl
+          </a>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Pn-Pt: 07:00-17:00
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="section-container py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 gradient-wood rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+          <span class="text-white font-bold text-xl">N</span>
+        </div>
+        <div>
+          <div class="font-display text-2xl text-wood-800 font-bold tracking-tight">Nadamel</div>
+          <div class="text-xs text-wood-600 -mt-1">Usługi Stolarskie</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navItems.map((item) => (
+          <a 
+            href={item.href}
+            class="px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition-colors rounded-lg hover:bg-primary-50"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href="#wycena" class="btn-primary ml-4">
+          Bezpłatna wycena
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-gray-700 hover:text-primary-600 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label="Menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-200">
+      <div class="flex flex-col gap-2 mt-4">
+        {navItems.map((item) => (
+          <a 
+            href={item.href}
+            class="px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-primary-50 font-medium transition-colors rounded-lg"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href="#wycena" class="btn-primary text-center mt-2">
+          Bezpłatna wycena
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer to prevent content from being hidden under fixed header -->
+<div class="h-32"></div>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

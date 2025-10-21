@@ -1,0 +1,104 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Rozkrój i oklejanie płyt',
+    description: 'Profesjonalny rozkrój płyt meblowych na nowoczesnych maszynach Hebrock. Oklejanie krawędzi w różnych wykończeniach z funkcją zarabiania naroży.',
+    icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z',
+    features: [
+      'Oklejanie z zarabianiem naroży - bez zadziorów',
+      'Klej dopasowany do koloru płyty (biały, czarny, bezbarwny)',
+      'Natrysk do akryli - delikatne obrzeża',
+      'Płyty renomowanych producentów: Kronopol, Kronospan, Egger, Forner'
+    ]
+  },
+  {
+    title: 'Drzwi wewnętrzne',
+    description: 'Kompleksowa obsługa: projekt, wykonanie i montaż drzwi wewnętrznych. Indywidualne podejście do każdego projektu.',
+    icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
+    features: [
+      'Projekt dostosowany do wnętrza',
+      'Wysokiej jakości materiały',
+      'Profesjonalny montaż',
+      'Drzwi przesuwne i uchylne'
+    ]
+  },
+  {
+    title: 'Fronty meblowe',
+    description: 'Wykonanie frontów meblowych lakierowanych i fornirowanych. Wysoka jakość wykończenia i trwałość.',
+    icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+    features: [
+      'Lakierowane (mono i kolor)',
+      'Fornirowane',
+      'Gładkie i ramiak',
+      'Dowolne wymiary i kształty'
+    ]
+  },
+  {
+    title: 'Lakierowanie',
+    description: 'Profesjonalne lakierowanie frontów meblowych i innych elementów. Szeroka gama kolorów i wykończeń.',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    features: [
+      'Lakierowanie mono i kolor',
+      'Fronty gładkie i ramiak',
+      'Wykończenie matowe i połysk',
+      'Lakierowanie materiałów i elementów'
+    ]
+  },
+  {
+    title: 'Pogrubianie elementów',
+    description: 'Pogrubianie blatów, półek, narożników i lameli zgodnie z wytycznymi klienta.',
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
+    features: [
+      'Pogrubiane blaty',
+      'Półki dowolnej grubości',
+      'Narożniki',
+      'Lamele'
+    ]
+  },
+  {
+    title: 'Przygotowanie blatów',
+    description: 'Kompleksowe przygotowanie blatów według dokumentacji technicznej z otworowaniami i frezowaniem.',
+    icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2',
+    features: [
+      'Realizacja według rysunków technicznych',
+      'Otworowania',
+      'Łączenia pod śruby',
+      'Frezowanie "na łyżwę"'
+    ]
+  }
+];
+---
+
+<section id="oferta" class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <div class="section-container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        Nasza oferta
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Kompleksowe usługi stolarskie
+      </h2>
+      <p class="text-xl text-gray-600">
+        Oferujemy szeroki zakres usług stolarskich z wykorzystaniem nowoczesnych technologii 
+        i materiałów najwyższej jakości.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a href="#wycena" class="btn-primary text-lg">
+        Zapytaj o szczegóły oferty
+      </a>
+    </div>
+  </div>
+</section>

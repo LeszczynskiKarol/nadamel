@@ -1,0 +1,107 @@
+---
+const benefits = [
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Krótki czas realizacji',
+    description: 'Zamówienia realizujemy ekspresowo - większość usług w 24-48 godzin. Rozumiemy potrzeby stolarzy i wiemy, że czas to pieniądz.'
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Najwyższa jakość',
+    description: 'Pracujemy na nowoczesnych maszynach niemieckiej firmy Hebrock. Każdy produkt przechodzi kontrolę jakości przed wydaniem.'
+  },
+  {
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    title: 'Zarabianie naroży',
+    description: 'Nasza okleiniarka posiada agregat do zarabiania naroży. Dzięki temu produkt jest pozbawiony "zadziorów" i nie wymaga dodatkowej obróbki.'
+  },
+  {
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    title: 'Klej dopasowany do koloru',
+    description: 'Obrzeże kleimy klejem EVA dopasowanym do koloru płyty - biały, czarny lub bezbarwny. Kleje bez wypełniaczy gwarantują wyższą jakość.'
+  },
+  {
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+    title: 'Natrysk do akryli',
+    description: 'Specjalny natrysk pozwala na prawidłowe wykończenie nawet delikatnego, cienkiego obrzeża o wykończeniu połyskującym lub matowym.'
+  },
+  {
+    icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    title: 'Zamówienia 7 dni w tygodniu',
+    description: 'Składaj zamówienia w każdym dniu tygodnia przez formularz kontaktowy lub e-mail. Nie musisz czekać na otwarcie biura.'
+  },
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+    title: 'Doświadczenie stolarzy',
+    description: 'Sami jesteśmy stolarzami z wieloletnim doświadczeniem. Wiemy czego potrzebujesz i na co zwrócić uwagę przy obsłudze.'
+  },
+  {
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Konkurencyjne ceny',
+    description: 'Oferujemy profesjonalne usługi w atrakcyjnych cenach. Dzięki efektywnym procesom możemy zaproponować najlepszy stosunek jakości do ceny.'
+  }
+];
+---
+
+<section id="onas" class="py-20 bg-white">
+  <div class="section-container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-wood-100 text-wood-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        Dlaczego my?
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Co zyskujesz wybierając Nadamel?
+      </h2>
+      <p class="text-xl text-gray-600">
+        Dzięki wieloletniemu doświadczeniu w produkcji mebli, znamy potrzeby stolarzy. 
+        Stworzyliśmy miejsce, gdzie wiele problemów po prostu znika.
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {benefits.map((benefit) => (
+        <div class="group">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefit.icon}></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+                {benefit.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {benefit.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Stats -->
+    <div class="mt-20 gradient-wood rounded-3xl p-12 text-white">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-bold mb-2">15+</div>
+          <div class="text-wood-200">Lat doświadczenia</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">5000+</div>
+          <div class="text-wood-200">Zadowolonych klientów</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">24h</div>
+          <div class="text-wood-200">Średni czas realizacji</div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2">99%</div>
+          <div class="text-wood-200">Poziom satysfakcji</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

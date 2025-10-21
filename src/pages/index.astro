@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<Layout 
+  title="Nadamel - Profesjonalne Usługi Stolarskie | Rozkrój, Oklejanie, Lakierowanie"
+  description="Profesjonalne usługi stolarskie w Poznaniu: rozkrój i oklejanie płyt meblowych na maszynach Hebrock, drzwi wewnętrzne, fronty meblowe, lakierowanie. Krótki czas realizacji, wysoka jakość. Zadzwoń: 577 708 677"
+  keywords="usługi stolarskie Poznań, rozkrój płyt meblowych, oklejanie płyt, drzwi wewnętrzne, fronty meblowe lakierowane, lakierowanie frontów, Hebrock, stolarz Poznań, rozkrój Kronopol, rozkrój Egger"
+>
+  <Hero />
+  <ServicesSection />
+  <BenefitsSection />
+  
+  <!-- Process Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          Jak to działa?
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Prosty proces realizacji
+        </h2>
+        <p class="text-xl text-gray-600">
+          Współpraca z nami jest prosta i przyjemna. Sprawdź jak wygląda proces od zamówienia do odbioru.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+              1
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Kontakt</h3>
+            <p class="text-gray-600 text-sm">
+              Skontaktuj się z nami telefonicznie, mailowo lub przez formularz
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+              2
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Wycena</h3>
+            <p class="text-gray-600 text-sm">
+              Przygotujemy indywidualną wycenę dostosowaną do Twoich potrzeb
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+              3
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Realizacja</h3>
+            <p class="text-gray-600 text-sm">
+              Wykonujemy zamówienie profesjonalnie i w ekspresowym tempie
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+              4
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Odbiór</h3>
+            <p class="text-gray-600 text-sm">
+              Odbierasz gotowy produkt najwyższej jakości
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 gradient-wood text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="section-container relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          Gotowy do rozpoczęcia współpracy?
+        </h2>
+        <p class="text-xl text-wood-100 mb-8">
+          Skontaktuj się z nami już dziś i przekonaj się o najwyższej jakości naszych usług. 
+          Gwarantujemy profesjonalizm i terminowość.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100 text-lg">
+            📞 Zadzwoń: 577 708 677
+          </a>
+          <a href="#wycena" class="btn-secondary border-white text-white hover:bg-white/10 text-lg">
+            Wypełnij formularz
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+          <div class="inline-block bg-wood-100 text-wood-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            FAQ
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Najczęściej zadawane pytania
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+              Jaki jest czas realizacji zamówienia?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Większość zamówień realizujemy w ciągu 24-48 godzin. Rozumiemy, że czas to pieniądz, 
+              dlatego stawiamy na ekspresową realizację bez uszczerbku na jakości.
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+              Jakie płyty meblowe są dostępne?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Pracujemy z renomowanymi producentami: Kronopol, Kronospan, Egger, Forner. 
+              Oferujemy szeroką gamę płyt laminowanych i akrylowych w różnych kolorach i wykończeniach.
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+              Czy można składać zamówienia w weekendy?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Tak! Przyjmujemy zamówienia 7 dni w tygodniu przez formularz kontaktowy lub e-mail. 
+              Nie musisz czekać na otwarcie biura - możesz złożyć zamówienie w dowolnym momencie.
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+              Co wyróżnia Waszą okleiniarkę?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Pracujemy na nowoczesnej okleiniarce Hebrock z agregatem do zarabiania naroży, 
+              natrysku do akryli i wymiennymi frezami. Dzięki temu zapewniamy najwyższą jakość 
+              wykończenia bez "zadziorów" na narożach.
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+              Czy oferujecie transport/dostawę?
+              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Tak, możemy zorganizować transport gotowych elementów. Szczegóły ustalamy indywidualnie 
+              w zależności od lokalizacji i wielkości zamówienia. Skontaktuj się z nami, aby poznać szczegóły.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,107 @@
+---
+import CTAButton from './CTAButton.astro';
+---
+
+<section class="relative gradient-wood py-20 lg:py-32 overflow-hidden">
+  <!-- Decorative Elements -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="section-container relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-white">
+        <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          ⭐ Ponad 15 lat doświadczenia
+        </div>
+        
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          Profesjonalne
+          <span class="block text-primary-300">Usługi Stolarskie</span>
+        </h1>
+        
+        <p class="text-xl text-wood-100 mb-8 leading-relaxed">
+          Rozkrój i oklejanie płyt meblowych, drzwi wewnętrzne, fronty meblowe, lakierowanie. 
+          Wysoka jakość wykonania i krótki czas realizacji.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <CTAButton href="#wycena" variant="primary" size="lg">
+            Bezpłatna wycena
+          </CTAButton>
+          <CTAButton href="tel:577708677" variant="secondary" size="lg">
+            📞 Zadzwoń teraz
+          </CTAButton>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+          <div>
+            <div class="text-3xl font-bold text-primary-300 mb-1">15+</div>
+            <div class="text-sm text-wood-200">Lat doświadczenia</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-primary-300 mb-1">5000+</div>
+            <div class="text-sm text-wood-200">Zrealizowanych projektów</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-primary-300 mb-1">24h</div>
+            <div class="text-sm text-wood-200">Średni czas realizacji</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Placeholder / Features -->
+      <div class="hidden lg:block">
+        <div class="relative">
+          <!-- Feature Cards -->
+          <div class="space-y-4">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white mb-1">Ekspresowa realizacja</div>
+                  <div class="text-sm text-wood-200">Zamówienia realizujemy w 24-48h</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white mb-1">Najwyższa jakość</div>
+                  <div class="text-sm text-wood-200">Niemieckie maszyny Hebrock</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-white mb-1">Doświadczony zespół</div>
+                  <div class="text-sm text-wood-200">Profesjonalizm w każdym detalu</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTAButton from '../components/CTAButton.astro';
+
+const services = [
+  {
+    title: 'Lakierowanie mono',
+    description: 'Jednolite kolory z palety RAL w wykończeniu matowym lub połyskowym',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01'
+  },
+  {
+    title: 'Lakierowanie kolor',
+    description: 'Wielokolorowe kompozycje i niestandardowe odcienie',
+    icon: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'
+  },
+  {
+    title: 'Fronty gładkie',
+    description: 'Minimalistyczne, płaskie powierzchnie o nowoczesnym charakterze',
+    icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2'
+  },
+  {
+    title: 'Fronty ramiak',
+    description: 'Klasyczne fronty z ramką i wypełnieniem',
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z'
+  }
+];
+
+const finishOptions = [
+  {
+    name: 'Połysk',
+    description: 'Eleganckie, luksusowe wykończenie z lustrzanym efektem',
+    benefits: ['Nowoczesny wygląd', 'Łatwe czyszczenie', 'Optyczne powiększenie przestrzeni']
+  },
+  {
+    name: 'Mat',
+    description: 'Dyskretne, delikatne wykończenie bez odbić światła',
+    benefits: ['Elegancja i klasa', 'Mniej widoczne odciski', 'Ciepły charakter']
+  },
+  {
+    name: 'Półmat',
+    description: 'Złoty środek łączący zalety połysku i matu',
+    benefits: ['Uniwersalność', 'Subtelny blask', 'Praktyczne rozwiązanie']
+  }
+];
+---
+
+<Layout
+  title="Lakierowanie Frontów i Elementów Meblowych | Nadamel Poznań"
+  description="Profesjonalne lakierowanie frontów meblowych: mono, kolor, gładkie, ramiak. Wykończenie matowe i połysk. Lakierowanie materiałów i elementów. Poznań."
+  keywords="lakierowanie frontów Poznań, lakierowanie meblowe, fronty lakierowane, lakierowanie mono, lakierowanie ramiak, lakiernia Poznań"
+>
+  <!-- Hero -->
+  <section class="gradient-wood py-20 text-white">
+    <div class="section-container">
+      <div class="max-w-4xl">
+        <nav class="text-sm mb-6 text-wood-200">
+          <a href="/" class="hover:text-white">Główna</a>
+          <span class="mx-2">/</span>
+          <span>Lakierowanie</span>
+        </nav>
+        
+        <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
+          Profesjonalne
+          <span class="block text-primary-300">lakierowanie</span>
+        </h1>
+        
+        <p class="text-xl text-wood-100 mb-8 leading-relaxed">
+          Lakierowanie frontów meblowych i innych elementów. Mono i kolor, gładkie i ramiak, 
+          mat i połysk. Najnowocześniejszy sprzęt i doświadczony zespół.
+        </p>
+        
+        <CTAButton href="#kontakt" variant="primary" size="lg">
+          Zamów lakierowanie
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Zakres usług
+        </h2>
+        <p class="text-xl text-gray-600">
+          Oferujemy pełen zakres usług lakierniczych dla mebli
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service) => (
+          <div class="card p-6 text-center">
+            <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon}></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Finish Options -->
+  <section class="py-20 bg-gray-50">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Rodzaje wykończenia
+        </h2>
+        <p class="text-xl text-gray-600">
+          Wybierz wykończenie idealne dla Twojego wnętrza
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {finishOptions.map((option) => (
+          <div class="bg-white rounded-xl p-8 shadow-lg">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">{option.name}</h3>
+            <p class="text-gray-600 mb-6">{option.description}</p>
+            <ul class="space-y-2">
+              {option.benefits.map((benefit) => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Proces lakierowania
+        </h2>
+        <p class="text-xl text-gray-600">
+          Wieloetapowy proces zapewniający perfekcyjne wykończenie
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-6">
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-6">
+            <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Przygotowanie powierzchni</h3>
+              <p class="text-gray-600">Dokładne szlifowanie i oczyszczanie elementów przed lakierowaniem</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-6">
+            <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Podkład</h3>
+              <p class="text-gray-600">Nałożenie profesjonalnego podkładu przygotowującego</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-6">
+            <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Lakierowanie</h3>
+              <p class="text-gray-600">Wielowarstwowe lakierowanie w kabinie lakierniczej</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-6">
+            <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">4</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Wykończenie</h3>
+              <p class="text-gray-600">Polerowanie i finalne wykończenie powierzchni</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start bg-gray-50 rounded-xl p-6">
+            <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">5</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Kontrola jakości</h3>
+              <p class="text-gray-600">Szczegółowa inspekcja przed wydaniem klientowi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="section-container">
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center">
+          <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Szeroka paleta kolorów</h3>
+          <p class="text-gray-600">Pełna paleta RAL i możliwość dopasowania niestandardowych odcieni</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Trwałość i odporność</h3>
+          <p class="text-gray-600">Wysokiej jakości lakiery odporne na zadrapania i wilgoć</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Perfekcyjne wykończenie</h3>
+          <p class="text-gray-600">Gładka, równa powierzchnia bez smug i nierówności</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="kontakt" class="py-20 gradient-wood text-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          Potrzebujesz lakierowania?
+        </h2>
+        <p class="text-xl text-wood-100 mb-8">
+          Skontaktuj się z nami, aby omówić szczegóły projektu i otrzymać wycenę
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+            📞 Zadzwoń: 577 708 677
+          </a>
+          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-white hover:bg-white/10">
+            ✉️ biuro@nadamel.pl
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

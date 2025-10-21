@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTAButton from '../components/CTAButton.astro';
+
+const features = [
+  {
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    title: 'Indywidualny projekt',
+    description: 'Każde drzwi projektujemy zgodnie z Twoimi wymaganiami i stylem wnętrza'
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Wysoka jakość',
+    description: 'Używamy najlepszych materiałów i nowoczesnych technologii produkcji'
+  },
+  {
+    icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+    title: 'Profesjonalny montaż',
+    description: 'Zapewniamy fachowy montaż przez doświadczony zespół'
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Szybka realizacja',
+    description: 'Od projektu do montażu w optymalnym czasie'
+  }
+];
+
+const doorTypes = [
+  {
+    title: 'Drzwi przesuwne',
+    description: 'Idealne do małych przestrzeni, oszczędzające miejsce',
+    features: ['System jezdny najwyższej jakości', 'Ciche zamykanie', 'Różne wzory i kolory']
+  },
+  {
+    title: 'Drzwi uchylne',
+    description: 'Klasyczne rozwiązanie, solidne i trwałe',
+    features: ['Różne systemy zawiasów', 'Dostosowane do framug', 'Szeroki wybór fournirów']
+  },
+  {
+    title: 'Drzwi harmonijkowe',
+    description: 'Praktyczne i funkcjonalne dla większych przejść',
+    features: ['Łatwe składanie', 'Oszczędność miejsca', 'Możliwość częściowego otwarcia']
+  }
+];
+---
+
+<Layout
+  title="Drzwi Wewnętrzne - Projekt, Wykonanie, Montaż | Nadamel"
+  description="Profesjonalne drzwi wewnętrzne na wymiar: projekt, wykonanie i montaż. Drzwi przesuwne, uchylne i harmonijkowe. Indywidualne projekty dopasowane do Twojego wnętrza. Poznań i okolice."
+  keywords="drzwi wewnętrzne Poznań, drzwi na wymiar, drzwi przesuwne, montaż drzwi, projekt drzwi, drzwi uchylne, stolarz drzwi Poznań"
+>
+  <!-- Hero Section -->
+  <section class="gradient-wood py-20 text-white">
+    <div class="section-container">
+      <div class="max-w-4xl">
+        <nav class="text-sm mb-6 text-wood-200">
+          <a href="/" class="hover:text-white">Główna</a>
+          <span class="mx-2">/</span>
+          <span>Drzwi wewnętrzne</span>
+        </nav>
+        
+        <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
+          Drzwi wewnętrzne
+          <span class="block text-primary-300">na wymiar</span>
+        </h1>
+        
+        <p class="text-xl text-wood-100 mb-8 leading-relaxed">
+          Projektujemy, wykonujemy i montujemy drzwi wewnętrzne dopasowane do Twojego wnętrza. 
+          Indywidualne podejście, wysoka jakość i profesjonalny montaż.
+        </p>
+        
+        <CTAButton href="#kontakt" variant="primary" size="lg">
+          Zapytaj o wycenę
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map((feature) => (
+          <div class="text-center">
+            <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+            <p class="text-gray-600 text-sm">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Door Types -->
+  <section class="py-20 bg-gray-50">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Rodzaje drzwi
+        </h2>
+        <p class="text-xl text-gray-600">
+          Oferujemy różne typy drzwi wewnętrznych dostosowane do Twoich potrzeb i przestrzeni
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {doorTypes.map((type) => (
+          <div class="card p-8">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">{type.title}</h3>
+            <p class="text-gray-600 mb-6">{type.description}</p>
+            <ul class="space-y-3">
+              {type.features.map((feat) => (
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 bg-white">
+    <div class="section-container">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Proces realizacji
+        </h2>
+        <p class="text-xl text-gray-600">
+          Od pomysłu do gotowego produktu - profesjonalnie i terminowo
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Konsultacja i pomiar</h3>
+            <p class="text-gray-600">Spotykamy się, omawiamy Twoje oczekiwania i wykonujemy dokładny pomiar</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Projekt i wycena</h3>
+            <p class="text-gray-600">Przygotowujemy indywidualny projekt oraz szczegółową wycenę</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Wykonanie</h3>
+            <p class="text-gray-600">Realizujemy drzwi z najwyższą starannością i precyzją</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">4</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Montaż</h3>
+            <p class="text-gray-600">Profesjonalny montaż przez doświadczony zespół</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="kontakt" class="py-20 gradient-wood text-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          Zainteresowany drzwiami na wymiar?
+        </h2>
+        <p class="text-xl text-wood-100 mb-8">
+          Skontaktuj się z nami, aby umówić się na bezpłatną konsultację i pomiar
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+            📞 Zadzwoń: 577 708 677
+          </a>
+          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-white hover:bg-white/10">
+            ✉️ Napisz: biuro@nadamel.pl
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
