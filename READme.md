@@ -33,7 +33,7 @@ npm run preview
 │   └── robots.txt
 ├── src/
 │   ├── components/      # Komponenty reużywalne
-│   │   ├── Header.astro
+│   │   ├── Header.astro (Z DROPDOWN MENU!)
 │   │   ├── Footer.astro
 │   │   ├── Hero.astro
 │   │   ├── ServiceCard.astro
@@ -43,11 +43,15 @@ npm run preview
 │   │   └── ContactSection.astro
 │   ├── layouts/         # Layouty
 │   │   └── Layout.astro
-│   ├── pages/           # Strony
+│   ├── pages/           # Strony (8 TOTAL!)
 │   │   ├── index.astro
 │   │   ├── drzwi-wewnetrzne.astro
 │   │   ├── fronty-meblowe.astro
-│   │   └── lakierowanie.astro
+│   │   ├── lakierowanie.astro
+│   │   ├── oklejanie-plyt-meblowych.astro (NOWA!)
+│   │   ├── ciecie-rozkroj-plyt.astro (NOWA!)
+│   │   ├── plyty-meblowe.astro (NOWA!)
+│   │   └── oklejanie-mebli.astro (NOWA!)
 │   └── styles/          # Style globalne
 │       └── global.css
 ├── astro.config.mjs     # Konfiguracja Astro
@@ -61,14 +65,14 @@ npm run preview
 
 - ✅ Meta tagi dla wszystkich stron
 - ✅ Open Graph i Twitter Cards
-- ✅ JSON-LD structured data
+- ✅ JSON-LD structured data (rozbudowane z OfferCatalog)
 - ✅ Canonical URLs
 - ✅ Sitemap automatyczny
 - ✅ Robots.txt
 
 ### Performance
 
-- ✅ Statyczna generacja stron
+- ✅ Statyczna generacja stron (SSG)
 - ✅ Optymalizowane CSS
 - ✅ Minimalizacja HTML
 - ✅ Fast by default z Astro
@@ -77,14 +81,22 @@ npm run preview
 
 - ✅ Responsywny design (mobile-first)
 - ✅ Nowoczesny UI z Tailwind
-- ✅ Niestandardowa paleta kolorów
+- ✅ NOWA kolorystyka (niebieski + szary)
 - ✅ Animacje i przejścia
-- ✅ Accessibility
+- ✅ Accessibility (WCAG)
+- ✅ **DROPDOWN MEGA MENU** w Header
+
+### Strony
+
+- ✅ 8 kompletnych podstron
+- ✅ 4 NOWE podstrony usług
+- ✅ Bogata treść SEO
+- ✅ FAQ na stronie głównej
 
 ### Komponenty
 
 - ✅ Reużywalne komponenty
-- ✅ Header z mobilnym menu
+- ✅ Header z mega menu dropdown
 - ✅ Footer z kontaktem
 - ✅ Karty usług
 - ✅ Sekcje korzyści

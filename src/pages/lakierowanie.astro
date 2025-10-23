@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTAButton from '../components/CTAButton.astro';
+import ContactSection from '../components/ContactSection.astro';
 
 const services = [
   {
@@ -45,9 +46,9 @@ const finishOptions = [
 ---
 
 <Layout
-  title="Lakierowanie Frontów i Elementów Meblowych | Nadamel Poznań"
-  description="Profesjonalne lakierowanie frontów meblowych: mono, kolor, gładkie, ramiak. Wykończenie matowe i połysk. Lakierowanie materiałów i elementów. Poznań."
-  keywords="lakierowanie frontów Poznań, lakierowanie meblowe, fronty lakierowane, lakierowanie mono, lakierowanie ramiak, lakiernia Poznań"
+  title="Lakierowanie Frontów i Elementów Meblowych  - Toruń| Nadamel"
+  description="Profesjonalne lakierowanie frontów meblowych: mono, kolor, gładkie, ramiak. Wykończenie matowe i połysk. Lakierowanie materiałów i elementów. Toruń."
+  keywords="lakierowanie frontów Poznań, lakierowanie meblowe, fronty lakierowane, lakierowanie mono, lakierowanie ramiak, lakiernia Toruń"
 >
   <!-- Hero -->
   <section class="gradient-wood py-20 text-white">
@@ -60,8 +61,8 @@ const finishOptions = [
         </nav>
         
         <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
-          Profesjonalne
-          <span class="block text-primary-300">lakierowanie</span>
+          Lakierowanie frontów
+          <span class="block text-primary-300">i elementów meblowych</span>
         </h1>
         
         <p class="text-xl text-wood-100 mb-8 leading-relaxed">
@@ -246,11 +247,12 @@ const finishOptions = [
           <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
             📞 Zadzwoń: 577 708 677
           </a>
-          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-white hover:bg-white/10">
+          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-gray-900 hover:bg-white/70">
             ✉️ biuro@nadamel.pl
           </a>
         </div>
       </div>
     </div>
   </section>
+<ContactSection />
 </Layout>

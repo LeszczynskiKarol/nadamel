@@ -1,5 +1,4 @@
 ---
-// src/Layout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -14,8 +13,8 @@ export interface Props {
 
 const { 
   title = 'Nadamel - Usługi Stolarskie | Rozkrój, Oklejanie, Lakierowanie',
-  description = 'Profesjonalne usługi stolarskie w Poznaniu: rozkrój i oklejanie płyt meblowych, drzwi wewnętrzne, fronty meblowe, lakierowanie. Wysoka jakość, krótki czas realizacji.',
-  keywords = 'usługi stolarskie, rozkrój płyt, oklejanie, drzwi wewnętrzne, fronty meblowe, lakierowanie, stolarz Poznań',
+  description = 'Profesjonalne usługi stolarskie w Toruniu: rozkrój i oklejanie płyt meblowych, drzwi wewnętrzne, fronty meblowe, lakierowanie. Wysoka jakość, krótki czas realizacji.',
+  keywords = 'usługi stolarskie, rozkrój płyt, oklejanie, drzwi wewnętrzne, fronty meblowe, lakierowanie, stolarz Toruń',
   ogImage = '/og-image.jpg',
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 } = Astro.props;
@@ -24,13 +23,13 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Nadamel',
-  description: 'Profesjonalne usługi stolarskie',
+  description: 'Profesjonalne usługi stolarskie w Toruniu',
   image: new URL(ogImage, Astro.site).href,
   telephone: '+48577708677',
   email: 'biuro@nadamel.pl',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Poznań',
+    addressLocality: 'Toruń',
     addressCountry: 'PL'
   },
   openingHoursSpecification: {
@@ -40,7 +39,41 @@ const jsonLd = {
     closes: '17:00'
   },
   priceRange: '$$',
-  '@id': 'https://nadamel.pl'
+  '@id': 'https://nadamel.pl',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Usługi stolarskie',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Rozkrój i oklejanie płyt meblowych'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Drzwi wewnętrzne na wymiar'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Fronty meblowe lakierowane'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Lakierowanie mebli'
+        }
+      }
+    ]
+  }
 };
 ---
 

@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTAButton from '../components/CTAButton.astro';
+import ContactSection from '../components/ContactSection.astro';
 
 const features = [
   {
     icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
     title: 'Indywidualny projekt',
-    description: 'Każde drzwi projektujemy zgodnie z Twoimi wymaganiami i stylem wnętrza'
+    description: 'Każde drzwi na wymiar projektujemy zgodnie z Twoimi wymaganiami i stylem wnętrza'
   },
   {
     icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
@@ -45,9 +46,9 @@ const doorTypes = [
 ---
 
 <Layout
-  title="Drzwi Wewnętrzne - Projekt, Wykonanie, Montaż | Nadamel"
-  description="Profesjonalne drzwi wewnętrzne na wymiar: projekt, wykonanie i montaż. Drzwi przesuwne, uchylne i harmonijkowe. Indywidualne projekty dopasowane do Twojego wnętrza. Poznań i okolice."
-  keywords="drzwi wewnętrzne Poznań, drzwi na wymiar, drzwi przesuwne, montaż drzwi, projekt drzwi, drzwi uchylne, stolarz drzwi Poznań"
+  title="Drzwi Wewnętrzne Na Wymiar - Toruń. Projekt, Wykonanie, Montaż"
+  description="Profesjonalne drzwi wewnętrzne na wymiar: projekt, wykonanie i montaż. Drzwi przesuwne, uchylne i harmonijkowe. Indywidualne projekty dopasowane do Twojego wnętrza. Toruń i okolice."
+  keywords="drzwi wewnętrzne Toruń, drzwi na wymiar, drzwi przesuwne, montaż drzwi, projekt drzwi, drzwi uchylne, stolarz drzwi Toruń"
 >
   <!-- Hero Section -->
   <section class="gradient-wood py-20 text-white">
@@ -61,11 +62,11 @@ const doorTypes = [
         
         <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
           Drzwi wewnętrzne
-          <span class="block text-primary-300">na wymiar</span>
+          <span class="block text-primary-300">na wymiar - Toruń</span>
         </h1>
         
         <p class="text-xl text-wood-100 mb-8 leading-relaxed">
-          Projektujemy, wykonujemy i montujemy drzwi wewnętrzne dopasowane do Twojego wnętrza. 
+          Na zamówienie klientów z Torunia i okolic projektujemy, wykonujemy i montujemy drzwi wewnętrzne dopasowane do Twojego wnętrza. 
           Indywidualne podejście, wysoka jakość i profesjonalny montaż.
         </p>
         
@@ -100,7 +101,7 @@ const doorTypes = [
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Rodzaje drzwi
+          Rodzaje drzwi wewnętrznych na wymiar
         </h2>
         <p class="text-xl text-gray-600">
           Oferujemy różne typy drzwi wewnętrznych dostosowane do Twoich potrzeb i przestrzeni
@@ -136,7 +137,7 @@ const doorTypes = [
           Proces realizacji
         </h2>
         <p class="text-xl text-gray-600">
-          Od pomysłu do gotowego produktu - profesjonalnie i terminowo
+          Od pomysłu do gotowego produktu - profesjonalnie i terminowo na zlecenie klientów z Torunia i okolic
         </p>
       </div>
 
@@ -161,7 +162,7 @@ const doorTypes = [
           <div class="w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-white text-xl font-bold flex-shrink-0">3</div>
           <div>
             <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Wykonanie</h3>
-            <p class="text-gray-600">Realizujemy drzwi z najwyższą starannością i precyzją</p>
+            <p class="text-gray-600">Realizujemy drzwi wewnętrzne na wymiar z najwyższą starannością i precyzją</p>
           </div>
         </div>
 
@@ -181,7 +182,7 @@ const doorTypes = [
     <div class="section-container">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          Zainteresowany drzwiami na wymiar?
+          Zamów drzwi na wymiar w Toruniu
         </h2>
         <p class="text-xl text-wood-100 mb-8">
           Skontaktuj się z nami, aby umówić się na bezpłatną konsultację i pomiar
@@ -190,11 +191,12 @@ const doorTypes = [
           <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
             📞 Zadzwoń: 577 708 677
           </a>
-          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-white hover:bg-white/10">
+          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-gray-900 hover:bg-white/70">
             ✉️ Napisz: biuro@nadamel.pl
           </a>
         </div>
       </div>
     </div>
   </section>
+  <ContactSection />
 </Layout>
