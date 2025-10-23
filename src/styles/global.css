@@ -41,10 +41,10 @@
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, #f05d1f 0%, #e14215 100%);
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
   }
 
   .gradient-wood {
-    background: linear-gradient(135deg, #b88d59 0%, #8d6242 100%);
+    background: linear-gradient(135deg, #44403c 0%, #1c1917 100%);
   }
 }
