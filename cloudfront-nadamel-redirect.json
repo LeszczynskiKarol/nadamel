@@ -1,0 +1,38 @@
+{
+  "CallerReference": "nadamel-redirect-2025",
+  "Aliases": {
+    "Quantity": 1,
+    "Items": ["nadamel.pl"]
+  },
+  "DefaultRootObject": "",
+  "Origins": {
+    "Quantity": 1,
+    "Items": [{
+      "Id": "S3-redirect-nadamel",
+      "DomainName": "nadamel.pl.s3-website.eu-central-1.amazonaws.com",
+      "CustomOriginConfig": {
+        "HTTPPort": 80,
+        "HTTPSPort": 443,
+        "OriginProtocolPolicy": "http-only"
+      }
+    }]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "S3-redirect-nadamel",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "AllowedMethods": {"Quantity": 2, "Items": ["GET", "HEAD"]},
+    "Compress": true,
+    "MinTTL": 0,
+    "DefaultTTL": 86400,
+    "MaxTTL": 31536000,
+    "ForwardedValues": {"QueryString": false, "Cookies": {"Forward": "none"}},
+    "TrustedSigners": {"Enabled": false, "Quantity": 0}
+  },
+  "Comment": "Redirect nadamel.pl to www.nadamel.pl",
+  "Enabled": true,
+  "ViewerCertificate": {
+    "ACMCertificateArn": "arn:aws:acm:us-east-1:381492300277:certificate/4496138d-32e8-4715-8d88-27a0e7bc8072",
+    "SSLSupportMethod": "sni-only",
+    "MinimumProtocolVersion": "TLSv1.2_2021"
+  }
+}
