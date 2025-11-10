@@ -63,15 +63,15 @@
         <div class="bg-white rounded-2xl shadow-xl p-8">
           <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Formularz kontaktowy</h3>
           
-          <form class="space-y-6" method="POST" action="/api/contact">
+          <form id="contact-form" class="space-y-6">
             <div>
-              <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+              <label for="user_name" class="block text-sm font-semibold text-gray-700 mb-2">
                 Imię i nazwisko *
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="user_name"
+                name="user_name"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 placeholder="Jan Kowalski"
@@ -79,13 +79,13 @@
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+              <label for="user_email" class="block text-sm font-semibold text-gray-700 mb-2">
                 Email *
               </label>
               <input
                 type="email"
-                id="email"
-                name="email"
+                id="user_email"
+                name="user_email"
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 placeholder="jan@example.com"
@@ -93,19 +93,17 @@
             </div>
 
             <div>
-              <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+              <label for="user_phone" class="block text-sm font-semibold text-gray-700 mb-2">
                 Telefon (opcjonalnie)
               </label>
               <input
                 type="tel"
-                id="phone"
-                name="phone"                
+                id="user_phone"
+                name="user_phone"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 placeholder="123 456 789"
               />
             </div>
-
-          
 
             <div>
               <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
@@ -121,6 +119,25 @@
               ></textarea>
             </div>
 
+            <!-- File Upload -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">
+                Załączniki <span class="text-gray-500 font-normal">(max. 5 plików, 10MB każdy)</span>
+              </label>
+              <div id="file-upload-area" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-500 transition-colors cursor-pointer">
+                <svg class="w-12 h-12 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+                <p class="text-gray-600 mb-1">Przeciągnij pliki lub kliknij aby wybrać</p>
+                <p class="text-sm text-gray-500">JPG, PNG, PDF, DOC (max. 10MB)</p>
+                <button type="button" id="upload-btn" class="mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                  Wybierz pliki
+                </button>
+              </div>
+              <div id="uploaded-files" class="mt-3 space-y-2"></div>
+              <input type="hidden" id="attachment_urls" name="attachment_urls" />
+            </div>
+
             <div class="flex items-start gap-3">
               <input
                 type="checkbox"
@@ -134,9 +151,18 @@
               </label>
             </div>
 
-            <button type="submit" class="btn-primary w-full text-center">
-              Wyślij zapytanie
+            <button type="submit" id="submit-btn" class="btn-primary w-full text-center relative">
+              <span id="btn-text">Wyślij zapytanie</span>
+              <span id="btn-loading" class="hidden items-center justify-center gap-2">
+                <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Wysyłanie...
+              </span>
             </button>
+
+            <div id="form-status" class="hidden"></div>
 
             <p class="text-xs text-gray-500 text-center">
               * Pola wymagane
@@ -147,3 +173,284 @@
     </div>
   </div>
 </section>
+
+<!-- EmailJS Script -->
+<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<!-- Cloudinary Upload Widget -->
+<script is:inline src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+<script is:inline>
+  // ========================================
+  // KONFIGURACJA - ZMIEŃ NA SWOJE DANE!
+  // ========================================
+  
+  // EmailJS
+  const EMAILJS_PUBLIC_KEY = "gjau8dneW58l9l3tz";
+  const EMAILJS_SERVICE_ID = "service_u7dvy4l";
+  const EMAILJS_TEMPLATE_ID = "template_yi1rzie";
+  
+  // Cloudinary
+  const CLOUDINARY_CLOUD_NAME = "drpll3ho2";
+  const CLOUDINARY_UPLOAD_PRESET = "nadamel";
+
+  // ========================================
+  // INICJALIZACJA
+  // ========================================
+  
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+  let uploadedFiles = [];
+
+  // ========================================
+  // CLOUDINARY UPLOAD WIDGET
+  // ========================================
+  
+  const myWidget = cloudinary.createUploadWidget(
+    {
+      cloudName: CLOUDINARY_CLOUD_NAME,
+      uploadPreset: CLOUDINARY_UPLOAD_PRESET,
+      sources: ['local', 'url', 'camera'],
+      multiple: true,
+      maxFiles: 5,
+      maxFileSize: 10485760,
+      resourceType: 'auto',
+      clientAllowedFormats: ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx'],
+      showPoweredBy: false,
+      language: 'pl',
+      text: {
+        pl: {
+          or: 'Lub',
+          back: 'Wstecz',
+          close: 'Zamknij',
+          upload_files: 'Wybierz pliki',
+          drag_files: 'Przeciągnij pliki',
+          browse: 'Przeglądaj',
+          uploading: 'Przesyłanie...',
+          max_files_title: 'Przekroczono limit',
+          max_files_text: 'Maksymalnie 5 plików'
+        }
+      },
+      styles: {
+        palette: {
+          window: "#ffffff",
+          windowBorder: "#0ea5e9",
+          tabIcon: "#0ea5e9",
+          menuIcons: "#0369a1",
+          textDark: "#000000",
+          textLight: "#FFFFFF",
+          link: "#0ea5e9",
+          action: "#0ea5e9",
+          inactiveTabIcon: "#999999",
+          error: "#ef4444",
+          inProgress: "#0ea5e9",
+          complete: "#10b981",
+          sourceBg: "#f9fafb"
+        }
+      }
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        const fileInfo = {
+          url: result.info.secure_url,
+          name: result.info.original_filename,
+          size: result.info.bytes,
+          format: result.info.format
+        };
+        uploadedFiles.push(fileInfo);
+        document.getElementById('attachment_urls').value = uploadedFiles.map(f => f.url).join(',');
+        displayUploadedFile(fileInfo);
+      }
+    }
+  );
+
+  // ========================================
+  // FUNKCJE POMOCNICZE
+  // ========================================
+  
+  function displayUploadedFile(fileInfo) {
+    const container = document.getElementById('uploaded-files');
+    const fileElement = document.createElement('div');
+    fileElement.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
+    fileElement.innerHTML = `
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">📎</span>
+        <div>
+          <p class="text-sm font-medium text-gray-900">${fileInfo.name}.${fileInfo.format}</p>
+          <p class="text-xs text-gray-500">${formatFileSize(fileInfo.size)}</p>
+        </div>
+      </div>
+      <button type="button" class="text-red-600 hover:text-red-700" data-url="${fileInfo.url}">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    `;
+    container.appendChild(fileElement);
+    
+    fileElement.querySelector('button').addEventListener('click', function() {
+      removeFile(this.dataset.url, fileElement);
+    });
+  }
+
+  function removeFile(url, element) {
+    uploadedFiles = uploadedFiles.filter(f => f.url !== url);
+    document.getElementById('attachment_urls').value = uploadedFiles.map(f => f.url).join(',');
+    element.remove();
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  }
+
+  // ========================================
+  // EVENT LISTENERS
+  // ========================================
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Phone click tracking
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    phoneLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'phone_click',
+          'phone_number': this.href.replace('tel:', ''),
+          'click_location': window.location.pathname,
+          'engagement_type': 'call_intent'
+        });
+      });
+    });
+
+    // Upload button
+    document.getElementById('upload-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      myWidget.open();
+    });
+
+    // Drag and drop
+    const uploadArea = document.getElementById('file-upload-area');
+    
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('border-primary-500', 'bg-primary-50');
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('border-primary-500', 'bg-primary-50');
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('border-primary-500', 'bg-primary-50');
+      myWidget.open();
+    });
+
+    // Form submission
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+    const formStatus = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Loading state
+      btnText.classList.add('hidden');
+      btnLoading.classList.remove('hidden');
+      btnLoading.classList.add('flex');
+      submitBtn.disabled = true;
+      formStatus.classList.add('hidden');
+      
+      // Prepare data
+      // Prepare data
+      const formData = new FormData(this);
+      const templateParams = {
+        user_name: formData.get('user_name'),
+        user_email: formData.get('user_email'),
+        user_phone: formData.get('user_phone') || 'Nie podano',
+        message: formData.get('message'),
+        attachments: uploadedFiles.length > 0 
+          ? uploadedFiles.map(f => `
+            <div style="margin-bottom: 12px; padding: 12px; background: white; border-radius: 8px; border: 1px solid #e5e7eb;">
+              <a href="${f.url}" 
+                style="color: #0284c7; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;"
+                target="_blank">
+                <span style="font-size: 18px;">📎</span>
+                <span>${f.name}.${f.format}</span>
+                <span style="color: #9ca3af; font-weight: normal; font-size: 13px;">(${formatFileSize(f.size)})</span>
+              </a>
+            </div>
+          `).join('')
+          : '<p style="color: #9ca3af; font-style: italic; margin: 0;">Brak załączników</p>'
+      };
+      
+      // Send via EmailJS
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function() {
+          // GTM Event
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'form_submit_success',
+            'form_type': 'contact',
+            'form_location': 'contact_section',
+            'form_details': {
+              'has_phone': templateParams.user_phone !== 'Nie podano',
+              'has_attachments': uploadedFiles.length > 0,
+              'attachment_count': uploadedFiles.length
+            }
+          });
+
+          // Success message
+          formStatus.innerHTML = `
+            <div class="p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
+              <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="font-semibold text-green-900">Wiadomość została wysłana!</p>
+                <p class="text-sm text-green-700">Odpowiemy najszybciej jak to możliwe.</p>
+              </div>
+            </div>
+          `;
+          formStatus.classList.remove('hidden');
+          
+          // Reset
+          form.reset();
+          uploadedFiles = [];
+          document.getElementById('uploaded-files').innerHTML = '';
+          document.getElementById('attachment_urls').value = '';
+          
+          btnText.classList.remove('hidden');
+          btnLoading.classList.add('hidden');
+          submitBtn.disabled = false;
+          
+          setTimeout(() => formStatus.classList.add('hidden'), 5000);
+        })
+        .catch(function(error) {
+          // Error message
+          formStatus.innerHTML = `
+            <div class="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+              <svg class="w-6 h-6 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="font-semibold text-red-900">Wystąpił błąd</p>
+                <p class="text-sm text-red-700">Spróbuj ponownie lub zadzwoń: 577 708 677</p>
+              </div>
+            </div>
+          `;
+          formStatus.classList.remove('hidden');
+          
+          btnText.classList.remove('hidden');
+          btnLoading.classList.add('hidden');
+          submitBtn.disabled = false;
+          
+          console.error('EmailJS error:', error);
+        });
+    });
+  });
+</script>
