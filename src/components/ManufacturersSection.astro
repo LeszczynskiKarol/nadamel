@@ -1,0 +1,95 @@
+---
+// Komponent prezentujący producentów materiałów
+
+const manufacturers = [
+  {
+    name: 'Kronopol',
+    description: 'Polski producent płyt wiórowych laminowanych',
+    logo: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/kronopol.png',
+    website: 'https://www.kronopol.pl'
+  },
+  {
+    name: 'Kronospan',
+    description: 'Globalny lider w produkcji płyt wiórowych',
+    logo: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/kronospan.jpg',
+    website: 'https://www.kronospan.com'
+  },
+  {
+    name: 'Egger',
+    description: 'Austriacki producent znany z innowacyjności',
+    logo: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/egger.jpg',
+    website: 'https://www.egger.com'
+  },
+  {
+    name: 'Forner',
+    description: 'Specjalista w produkcji płyt MDF i HDF',
+    logo: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/forner.jpg',
+    website: 'https://www.forner.pl'
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="section-container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        Zaufani partnerzy
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Renomowani producenci materiałów
+      </h2>
+      <p class="text-xl text-gray-600">
+        Współpracujemy tylko z najlepszymi. Jakość materiałów to podstawa naszej pracy.
+      </p>
+    </div>
+
+    <!-- Manufacturers Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {manufacturers.map((manufacturer) => (
+        <div class="group">
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            
+            {/* LOGO PRODUCENTA */}
+            {manufacturer.logo ? (
+              <div class="h-20 flex items-center justify-center mb-6">
+                <img 
+                  src={manufacturer.logo} 
+                  alt={`Logo ${manufacturer.name}`}
+                  class="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ) : (
+              /* Placeholder gdy brak logo */
+              <div class="h-20 flex items-center justify-center mb-6">
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-wood-700 mb-1">{manufacturer.name.charAt(0)}</div>
+                  <div class="text-xs text-gray-500">Logo</div>
+                </div>
+              </div>
+            )}
+
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">
+              {manufacturer.name}
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              {manufacturer.description}
+            </p>            
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Trust Badge -->
+    <div class="mt-16 max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-wood-50 to-primary-50 rounded-2xl p-8 text-center border border-wood-200">
+        <p class="text-lg text-gray-700 mb-2">
+          <span class="font-bold text-wood-800">Wszystkie materiały</span> pochodzą bezpośrednio od producentów
+        </p>
+        <p class="text-sm text-gray-600">
+          Gwarantujemy autentyczność i najwyższą jakość płyt meblowych
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

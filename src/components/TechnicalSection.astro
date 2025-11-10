@@ -1,0 +1,146 @@
+---
+// Komponent prezentujący zaplecze techniczne firmy
+
+const equipment = [
+  {
+    title: 'Okleiniarka Hebrock',
+    description: 'Nowoczesna okleiniarka z agregatem do zarabiania naroży i natrysk do akryli',
+    image: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/okleinarka_hebrock_f5.jpg',
+    features: ['Zarabianie naroży', 'Natrysk do akryli', 'Wymienne frezy']
+  },
+  {
+    title: 'Formatyzarka',
+    description: 'Precyzyjna piła formatowa do rozkroju płyt meblowych',
+    image: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/formatyzarka.jpg',
+    features: ['Dokładność ±0.1mm', 'Płyty do 3200mm', 'Cięcie pod kątem']
+  },  
+  {
+    title: 'Warsztat stolarski',
+    description: 'W pełni wyposażony warsztat do kompleksowej obróbki drewna',
+    image: 'https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/Zdjecia+Meble+2025+luty+(100+of+175)+(1).JPG',
+    features: ['Frezarki CNC', 'Strugarka', 'Piły taśmowe']
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <div class="section-container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-block bg-wood-100 text-wood-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        Nasze zaplecze
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Nowoczesne maszyny stolarskie
+      </h2>
+      <p class="text-xl text-gray-600">
+        Dysponujemy profesjonalnym parkiem maszynowym najwyższej klasy. 
+        To gwarancja precyzji i najwyższej jakości wykonania.
+      </p>
+    </div>
+
+    <!-- Equipment Grid -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {equipment.map((item) => (
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+          
+          {/* ZDJĘCIE MASZYNY */}
+          {item.image ? (
+            <div class="relative h-64 bg-gray-200">
+              <img 
+                src={item.image} 
+                alt={item.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            /* Placeholder gdy brak zdjęcia */
+            <div class="relative h-64 bg-gradient-to-br from-wood-600 to-wood-800 flex items-center justify-center">
+              <div class="text-center text-white">
+                <svg class="w-16 h-16 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <p class="text-sm opacity-75">Dodaj zdjęcie maszyny</p>
+              </div>
+            </div>
+          )}
+
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">
+              {item.title}
+            </h3>
+            <p class="text-gray-600 mb-4">
+              {item.description}
+            </p>
+            <ul class="space-y-2">
+              {item.features.map((feature) => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Workshop Photo Section -->
+    <div class="mt-16 bg-white rounded-2xl overflow-hidden shadow-xl max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-0">
+        
+          
+          <div class="relative h-96">
+            <img 
+              src="https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_7523.jpeg" 
+              alt="Zespół Nadamel przy pracy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        
+
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+          <h3 class="font-display text-3xl font-bold text-gray-900 mb-4">
+            Doświadczony zespół
+          </h3>
+          <p class="text-lg text-gray-600 mb-6">
+            Za każdym zamówieniem stoi zespół doświadczonych specjalistów, 
+            którzy dbają o każdy detal. Sami jesteśmy producentami mebli 
+            z wieloletnim doświadczeniem.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <div class="font-semibold text-gray-900">Ponad 10 lat doświadczenia</div>
+                <div class="text-sm text-gray-600">W produkcji mebli i usługach stolarskich</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <div class="font-semibold text-gray-900">Ciągłe szkolenia</div>
+                <div class="text-sm text-gray-600">Aktualna wiedza o nowych technologiach</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <div class="font-semibold text-gray-900">Pasja do stolarki</div>
+                <div class="text-sm text-gray-600">Każdy projekt traktujemy indywidualnie</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,16 +13,9 @@ const servicesMenu = [
     ]
   },
   {
-    category: 'Fronty i drzwi',
+    category: 'Inne usługi',
     items: [
       { href: '/drzwi-wewnetrzne', label: 'Drzwi wewnętrzne' },
-      { href: '/fronty-meblowe', label: 'Fronty meblowe' },
-      { href: '/lakierowanie', label: 'Lakierowanie' },
-    ]
-  },
-  {
-    category: 'Renowacja',
-    items: [
       { href: '/oklejanie-mebli', label: 'Oklejanie mebli' },
     ]
   }
@@ -92,9 +85,9 @@ const servicesMenu = [
             </svg>
           </button>
           
-          <!-- Mega Menu -->
-          <div class="absolute top-full right-0 mt-2 w-[480px] bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="grid grid-cols-3 gap-4 p-6">
+          <!-- Mega Menu - zmniejszone do 2 kolumn -->
+          <div class="absolute top-full right-0 mt-2 w-[360px] bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="grid grid-cols-2 gap-4 p-6">
               {servicesMenu.map((section) => (
                 <div>
                   <h3 class="font-display font-bold text-gray-900 mb-3 text-xs uppercase tracking-wide">{section.category}</h3>

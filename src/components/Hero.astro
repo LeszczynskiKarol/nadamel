@@ -2,9 +2,30 @@
 import CTAButton from './CTAButton.astro';
 ---
 
+<!-- 
+  HERO SECTION Z MIEJSCEM NA ZDJĘCIE TŁA
+  Dodaj zdjęcie warsztatu/maszyn w public/images/hero/
+-->
+
 <section class="relative gradient-wood py-20 lg:py-20 overflow-hidden">
+  <!-- 
+    ZDJĘCIE TŁA - odkomentuj gdy dodasz zdjęcie
+    Zalecane zdjęcie: warsztat, maszyny Hebrock, lub zespół przy pracy
+    Wymiary: min. 1920x1080px, format: JPG
+  -->
+  <!-- 
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/hero/workshop-bg.jpg" 
+      alt="Warsztat stolarski Nadamel w Toruniu"
+      class="w-full h-full object-cover opacity-20"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-wood-900/90 to-wood-800/80"></div>
+  </div>
+  -->
+
   <!-- Decorative Elements -->
-  <div class="absolute inset-0 opacity-10">
+  <div class="absolute inset-0 opacity-10 z-0">
     <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
   </div>
@@ -23,8 +44,8 @@ import CTAButton from './CTAButton.astro';
         </h1>
         
         <p class="text-xl text-wood-100 mb-8 leading-relaxed">
-          Rozkrój i oklejanie płyt meblowych, drzwi wewnętrzne, fronty meblowe, lakierowanie. 
-          Wysoka jakość wykonania i krótki czas realizacji.
+          Rozkrój i oklejanie płyt meblowych na maszynach Hebrock, drzwi wewnętrzne, 
+          oklejanie mebli. Wysoka jakość wykonania i krótki czas realizacji.
         </p>
         
         <div class="flex flex-wrap gap-4">
@@ -35,11 +56,9 @@ import CTAButton from './CTAButton.astro';
             📞 Zadzwoń teraz
           </CTAButton>
         </div>
-
-   
       </div>
 
-      <!-- Image Placeholder / Features -->
+      <!-- Feature Cards -->
       <div class="hidden lg:block">
         <div class="relative">
           <!-- Feature Cards -->
@@ -67,7 +86,7 @@ import CTAButton from './CTAButton.astro';
                 </div>
                 <div>
                   <div class="font-bold text-white mb-1">Najwyższa jakość</div>
-                  <div class="text-sm text-wood-200">Nowoczesne maszyny, profesjonalne procedury</div>
+                  <div class="text-sm text-wood-200">Nowoczesne maszyny Hebrock</div>
                 </div>
               </div>
             </div>
@@ -81,7 +100,7 @@ import CTAButton from './CTAButton.astro';
                 </div>
                 <div>
                   <div class="font-bold text-white mb-1">Doświadczony zespół</div>
-                  <div class="text-sm text-wood-200">Kompetencje i doświadczenie w każdym detalu</div>
+                  <div class="text-sm text-wood-200">Kompetencje w każdym detalu</div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,6 @@
+{
+  "Tags": {
+    "Key": "elasticbeanstalk:environment-name",
+    "Values": ["Scraper-najnowszy-env"]
+  }
+}

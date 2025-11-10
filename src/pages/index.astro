@@ -4,18 +4,41 @@ import Hero from '../components/Hero.astro';
 import ServicesSection from '../components/ServicesSection.astro';
 import BenefitsSection from '../components/BenefitsSection.astro';
 import ContactSection from '../components/ContactSection.astro';
+
+// NOWE KOMPONENTY Z MIEJSCAMI NA ZDJĘCIA
+import TechnicalSection from '../components/TechnicalSection.astro';
+import ManufacturersSection from '../components/ManufacturersSection.astro';
 ---
 
 <Layout 
-  title="Usługi Stolarskie Toruń | Rozkrój, Oklejanie, Lakierowanie"
-  description="Profesjonalne usługi stolarskie w Toruniu: rozkrój i oklejanie płyt meblowych na maszynach Hebrock, drzwi wewnętrzne, fronty meblowe, lakierowanie. Krótki czas realizacji, wysoka jakość. Zadzwoń: 577 708 677"
-  keywords="usługi stolarskie Toruń, rozkrój płyt meblowych, oklejanie płyt, drzwi wewnętrzne, fronty meblowe lakierowane, lakierowanie frontów, Hebrock, stolarz Toruń, rozkrój Kronopol, rozkrój Egger"
+  title="Usługi Stolarskie Toruń | Rozkrój, Oklejanie, Drzwi | Nadamel"
+  description="Profesjonalne usługi stolarskie w Toruniu: rozkrój i oklejanie płyt meblowych na maszynach Hebrock, drzwi wewnętrzne, oklejanie mebli. Krótki czas realizacji, wysoka jakość. Zadzwoń: 577 708 677"
+  keywords="usługi stolarskie Toruń, rozkrój płyt meblowych, oklejanie płyt, drzwi wewnętrzne, oklejanie mebli, Hebrock, stolarz Toruń, rozkrój Kronopol, rozkrój Egger"
 >
+  <!-- 
+    HERO SECTION 
+    Możesz dodać zdjęcie warsztatu/maszyn jako tło w komponencie Hero.astro
+    Np. background-image w sekcji gradient-wood
+  -->
   <Hero />
+
+  <!-- USŁUGI -->
   <ServicesSection />
-  <BenefitsSection />
+
   
-  <!-- Process Section -->
+  <TechnicalSection />
+
+  <!-- KORZYŚCI - można tu dodać zdjęcia zespołu -->
+  <BenefitsSection />
+
+  <!-- 
+    NOWA SEKCJA: PRODUCENCI 
+    Tutaj dodaj loga: Kronopol, Kronospan, Egger, Forner
+    Edytuj plik ManufacturersSection.astro i dodaj ścieżki do logo
+  -->
+  <ManufacturersSection />
+  
+  <!-- PROCES REALIZACJI -->
   <section class="py-20 bg-gray-50">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -30,9 +53,14 @@ import ContactSection from '../components/ContactSection.astro';
         </p>
       </div>
 
+      <!-- 
+        PROCES - tutaj można dodać zdjęcia poszczególnych etapów pracy
+        Np. zdjęcie konsultacji, maszyn w pracy, kontroli jakości, odbioru
+      -->
       <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-4 gap-8">
           <div class="text-center">
+            <!-- Można zamienić gradient na zdjęcie -->
             <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
               1
             </div>
@@ -76,7 +104,7 @@ import ContactSection from '../components/ContactSection.astro';
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- CTA SECTION -->
   <section class="py-20 gradient-wood text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -106,7 +134,7 @@ import ContactSection from '../components/ContactSection.astro';
 
   <ContactSection />
 
-  <!-- FAQ Section -->
+  <!-- FAQ SECTION -->
   <section class="py-20 bg-white">
     <div class="section-container">
       <div class="max-w-3xl mx-auto">
@@ -167,9 +195,9 @@ import ContactSection from '../components/ContactSection.astro';
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Pracujemy na nowoczesnej okleiniarce z agregatem do zarabiania naroży, 
+              Pracujemy na nowoczesnej okleiniarce Hebrock z agregatem do zarabiania naroży, 
               natrysku do akryli i wymiennymi frezami. Dzięki temu zapewniamy najwyższą jakość 
-              wykończenia bez „zadziorów” na narożach.
+              wykończenia bez „zadziorów" na narożach.
             </p>
           </details>
 
