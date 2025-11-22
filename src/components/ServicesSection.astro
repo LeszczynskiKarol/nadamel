@@ -1,76 +1,81 @@
 ---
-import ServiceCard from './ServiceCard.astro';
+import ServiceCard from "./ServiceCard.astro";
 
 const services = [
   {
-    title: 'Rozkrój i oklejanie płyt',
-    description: 'Profesjonalny rozkrój płyt meblowych na nowoczesnych maszynach. Oklejanie krawędzi w różnych wykończeniach z funkcją zarabiania naroży.',
-    icon: 'M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z',
-    link: '/ciecie-rozkroj-plyt',
+    title: "Rozkrój i oklejanie płyt",
+    description:
+      "Profesjonalny rozkrój płyt meblowych na nowoczesnych maszynach. Oklejanie krawędzi w różnych wykończeniach z funkcją zarabiania naroży.",
+    icon: "M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z",
+    link: "/ciecie-rozkroj-plyt",
     features: [
-      'Oklejanie z zarabianiem naroży - bez zadziorów',
-      'Klej dopasowany do koloru płyty',
-      'Natrysk do akryli - delikatne obrzeża',      
-    ]
+      "Oklejanie z zarabianiem naroży - bez zadziorów",
+      "Klej dopasowany do koloru płyty",
+      "Natrysk do akryli - delikatne obrzeża",
+    ],
   },
   {
-    title: 'Frezowanie elementów',
-    description: 'Frezujemy elementy w dowolnym kształcie i oklejamy krzywoliniowo obrzeżem PCV, ABS lub fornirem. Precyzja i estetyka.',
-    icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z',
-    link: '/frezowanie-elementow',
+    title: "Frezowanie elementów",
+    description:
+      "Frezujemy elementy w dowolnym kształcie i oklejamy krzywoliniowo obrzeżem PCV, ABS lub fornirem. Precyzja i estetyka.",
+    icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z",
+    link: "/frezowanie-elementow",
     features: [
-      'Dowolne kształty krzywoliniowe',
-      'Oklejanie krzywizn PCV, ABS, fornir',
-      'Wycięcia pod AGD i otwory',
-      'Fronty meblowe i dekoracje'
-    ]
+      "Dowolne kształty krzywoliniowe",
+      "Oklejanie krzywizn PCV, ABS, fornir",
+      "Wycięcia pod AGD i otwory",
+      "Fronty meblowe i dekoracje",
+    ],
   },
   {
-    title: 'Drzwi wewnętrzne',
-    description: 'Kompleksowa obsługa: projekt, wykonanie i montaż drzwi wewnętrznych. Indywidualne podejście do każdego projektu.',
-    icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
-    link: '/drzwi-wewnetrzne',
+    title: "Drzwi wewnętrzne",
+    description:
+      "Kompleksowa obsługa: projekt, wykonanie i montaż drzwi wewnętrznych. Indywidualne podejście do każdego projektu.",
+    icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
+    link: "/drzwi-wewnetrzne",
     features: [
-      'Projekt dostosowany do wnętrza',
-      'Wysokiej jakości materiały',
-      'Profesjonalny montaż',
-      'Drzwi przesuwne i uchylne'
-    ]
+      "Projekt dostosowany do wnętrza",
+      "Wysokiej jakości materiały",
+      "Profesjonalny montaż",
+      "Drzwi przesuwne i uchylne",
+    ],
   },
   {
-    title: 'Oklejanie mebli',
-    description: 'Profesjonalne oklejanie gotowych mebli i elementów. Odnowienie lub zmiana koloru bez wymiany mebli.',
-    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
-    link: '/oklejanie-mebli',
+    title: "Nietypowe bryły",
+    description: "Tworzymy nietypowe bryły typu zakończenia wysp.",
+    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    link: "/oklejanie-mebli",
     features: [
-      'Odnowienie starych mebli',
-      'Zmiana koloru bez wymiany',
-      'Oklejanie korpusów i frontów',
-      'Szeroki wybór kolorów'
-    ]
+      "Formy zaoblone i gładkie",
+      "Ryflowane lakierowane gładkie",
+      "Fornirowane gładkie",
+      "Fornirowane ryflowane",
+    ],
   },
   {
-    title: 'Pogrubianie elementów',
-    description: 'Pogrubianie blatów, półek, narożników i lameli zgodnie z wytycznymi klienta.',
-    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
+    title: "Pogrubianie elementów",
+    description:
+      "Pogrubianie blatów, półek, narożników i lameli zgodnie z wytycznymi klienta.",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
     features: [
-      'Pogrubianie blatów',
-      'Półki dowolnej grubości',
-      'Narożniki',
-      'Lamele'
-    ]
+      "Pogrubianie blatów",
+      "Półki dowolnej grubości",
+      "Narożniki",
+      "Lamele",
+    ],
   },
   {
-    title: 'Przygotowanie blatów',
-    description: 'Kompleksowe przygotowanie blatów według dokumentacji technicznej z otworowaniami i frezowaniem.',
-    icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2',
+    title: "Przygotowanie blatów",
+    description:
+      "Kompleksowe przygotowanie blatów według dokumentacji technicznej z otworowaniami i frezowaniem.",
+    icon: "M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2",
     features: [
-      'Realizacja według rysunków',
-      'Otworowania',
-      'Łączenia pod śruby',
-      'Frezowanie „na łyżwę"'
-    ]
-  }
+      "Realizacja według rysunków",
+      "Otworowania",
+      "Łączenia pod śruby",
+      'Frezowanie „na łyżwę"',
+    ],
+  },
 ];
 ---
 
@@ -78,23 +83,25 @@ const services = [
   <div class="section-container">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+      <div
+        class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+      >
         Nasza oferta
       </div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      <h2
+        class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+      >
         Kompleksowe usługi stolarskie
       </h2>
       <p class="text-xl text-gray-600">
-        Oferujemy szeroki zakres usług stolarskich z wykorzystaniem nowoczesnych technologii 
-        i materiałów najwyższej jakości.
+        Oferujemy szeroki zakres usług stolarskich z wykorzystaniem nowoczesnych
+        technologii i materiałów najwyższej jakości.
       </p>
     </div>
 
     <!-- Services Grid - 2 rows x 3 columns -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service) => (
-        <ServiceCard {...service} />
-      ))}
+      {services.map((service) => <ServiceCard {...service} />)}
     </div>
 
     <!-- CTA -->
