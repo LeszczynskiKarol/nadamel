@@ -1,0 +1,265 @@
+---
+interface Props {
+  images: string[];
+  autoplay?: boolean;
+  interval?: number;
+  imageWidth?: string;
+}
+
+const {
+  images,
+  autoplay = true,
+  interval = 4000,
+  imageWidth = "w-[600px]", // Szerokość pojedynczego zdjęcia
+} = Astro.props;
+---
+
+<div class="relative w-full py-8 overflow-hidden">
+  <div class="section-container">
+    <!-- Carousel wrapper -->
+    <div class="relative group">
+      <!-- Images Container - tu się przesuwają zdjęcia -->
+      <div class="overflow-hidden rounded-2xl">
+        <div
+          class="carousel-track flex gap-6 transition-transform duration-500 ease-out"
+          style="transform: translateX(0)"
+        >
+          {
+            images.map((image, index) => (
+              <div class={`flex-shrink-0 ${imageWidth}`}>
+                <div class="relative h-[400px] bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src={image}
+                    alt={`Zdjęcie ${index + 1}`}
+                    class="w-full h-full object-contain"
+                    loading={index < 2 ? "eager" : "lazy"}
+                  />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button
+        type="button"
+        class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-white text-gray-900 rounded-full p-4 shadow-xl transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Poprzednie zdjęcie"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 hover:bg-white text-gray-900 rounded-full p-4 shadow-xl transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Następne zdjęcie"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Indicators -->
+    <div class="flex justify-center gap-2 mt-6">
+      {
+        images.map((_, index) => (
+          <button
+            type="button"
+            class={`carousel-indicator h-2 rounded-full transition-all duration-300 ${
+              index === 0
+                ? "bg-primary-600 w-8"
+                : "bg-gray-300 w-2 hover:bg-gray-400"
+            }`}
+            data-slide-to={index}
+            aria-label={`Przejdź do zdjęcia ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+
+    <!-- Counter -->
+    <div class="text-center mt-4 text-gray-600 font-medium">
+      <span class="carousel-counter">1</span> / {images.length}
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ autoplay, interval, imageWidth }}>
+  class ProportionalCarousel {
+    constructor(element) {
+      this.container = element;
+      this.track = element.querySelector(".carousel-track");
+      this.indicators = element.querySelectorAll(".carousel-indicator");
+      this.prevBtn = element.querySelector(".carousel-prev");
+      this.nextBtn = element.querySelector(".carousel-next");
+      this.counter = element.querySelector(".carousel-counter");
+      this.slides = this.track.children;
+      this.currentSlide = 0;
+      this.autoplayTimer = null;
+      this.isTransitioning = false;
+
+      this.init();
+    }
+
+    init() {
+      this.updateButtons();
+
+      // Navigation buttons
+      this.prevBtn.addEventListener("click", () => this.prev());
+      this.nextBtn.addEventListener("click", () => this.next());
+
+      // Indicators
+      this.indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => this.goToSlide(index));
+      });
+
+      // Autoplay
+      if (autoplay) {
+        this.startAutoplay();
+
+        // Pause on hover
+        this.container.addEventListener("mouseenter", () =>
+          this.stopAutoplay()
+        );
+        this.container.addEventListener("mouseleave", () =>
+          this.startAutoplay()
+        );
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") this.prev();
+        if (e.key === "ArrowRight") this.next();
+      });
+
+      // Touch support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      this.track.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      this.track.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+        }
+      });
+    }
+
+    goToSlide(index) {
+      if (this.isTransitioning || index === this.currentSlide) return;
+      if (index < 0 || index >= this.slides.length) return;
+
+      this.isTransitioning = true;
+
+      // Calculate offset
+      const slideWidth = this.slides[0].offsetWidth;
+      const gap = 24; // gap-6 = 24px
+      const offset = -(slideWidth + gap) * index;
+
+      // Move track
+      this.track.style.transform = `translateX(${offset}px)`;
+
+      // Update indicators
+      this.indicators[this.currentSlide].classList.remove(
+        "bg-primary-600",
+        "w-8"
+      );
+      this.indicators[this.currentSlide].classList.add("bg-gray-300", "w-2");
+
+      this.indicators[index].classList.remove("bg-gray-300", "w-2");
+      this.indicators[index].classList.add("bg-primary-600", "w-8");
+
+      // Update counter
+      this.counter.textContent = index + 1;
+
+      this.currentSlide = index;
+      this.updateButtons();
+
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 500);
+    }
+
+    next() {
+      if (this.currentSlide < this.slides.length - 1) {
+        this.goToSlide(this.currentSlide + 1);
+      } else if (autoplay) {
+        // Loop back to start on autoplay
+        this.goToSlide(0);
+      }
+    }
+
+    prev() {
+      if (this.currentSlide > 0) {
+        this.goToSlide(this.currentSlide - 1);
+      }
+    }
+
+    updateButtons() {
+      // Disable prev button on first slide
+      if (this.currentSlide === 0) {
+        this.prevBtn.setAttribute("disabled", "true");
+      } else {
+        this.prevBtn.removeAttribute("disabled");
+      }
+
+      // Disable next button on last slide (unless autoplay)
+      if (this.currentSlide === this.slides.length - 1 && !autoplay) {
+        this.nextBtn.setAttribute("disabled", "true");
+      } else {
+        this.nextBtn.removeAttribute("disabled");
+      }
+    }
+
+    startAutoplay() {
+      this.autoplayTimer = setInterval(() => this.next(), interval);
+    }
+
+    stopAutoplay() {
+      if (this.autoplayTimer) {
+        clearInterval(this.autoplayTimer);
+        this.autoplayTimer = null;
+      }
+    }
+  }
+
+  // Initialize all carousels
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll(".relative.w-full.py-8.overflow-hidden")
+      .forEach((carousel) => {
+        new ProportionalCarousel(carousel);
+      });
+  });
+</script>

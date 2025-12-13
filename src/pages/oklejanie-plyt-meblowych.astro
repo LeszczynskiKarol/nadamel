@@ -1,47 +1,69 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTAButton from '../components/CTAButton.astro';
-import ContactSection from '../components/ContactSection.astro';
+import CTAButton from "../components/CTAButton.astro";
+import ContactSection from "../components/ContactSection.astro";
+import ImageCarousel from "../components/ImageCarousel.astro";
+import Layout from "../layouts/Layout.astro";
+
+const images = [
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1494+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1496.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1500.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1505.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1507+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1510+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1512+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1513+(1).jpg",
+];
 
 const features = [
   {
-    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'Zarabianie naroży',
-    description: 'Agregat do zarabiania naroży eliminuje „zadziory" na krawędziach'
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: "Zarabianie naroży",
+    description:
+      'Agregat do zarabiania naroży eliminuje „zadziory" na krawędziach',
   },
   {
-    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
-    title: 'Klej dopasowany do koloru',
-    description: 'Klej EVA w trzech kolorach: biały, czarny, bezbarwny'
+    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    title: "Klej dopasowany do koloru",
+    description: "Klej EVA w trzech kolorach: biały, czarny, bezbarwny",
   },
   {
-    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
-    title: 'Natrysk do akryli',
-    description: 'Specjalny natrysk do delikatnych obrzeży połyskujących i matowych'
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+    title: "Natrysk do akryli",
+    description:
+      "Specjalny natrysk do delikatnych obrzeży połyskujących i matowych",
   },
   {
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    title: 'Ekspresowa realizacja',
-    description: 'Większość zamówień w 24-48h'
-  }
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    title: "Ekspresowa realizacja",
+    description: "Większość zamówień w 24-48h",
+  },
 ];
 
 const edgeBandTypes = [
   {
-    name: 'Obrzeża ABS',
-    description: 'Najpopularniejsze, trwałe i odporne na uszkodzenia',
-    benefits: ['Wysoka odporność', 'Szeroka gama kolorów', 'Doskonała przyczepność']
+    name: "Obrzeża ABS",
+    description: "Najpopularniejsze, trwałe i odporne na uszkodzenia",
+    benefits: [
+      "Wysoka odporność",
+      "Szeroka gama kolorów",
+      "Doskonała przyczepność",
+    ],
   },
   {
-    name: 'Obrzeża PVC',
-    description: 'Ekonomiczne rozwiązanie o dobrej jakości',
-    benefits: ['Atrakcyjna cena', 'Łatwe w obróbce', 'Dobre parametry']
+    name: "Obrzeża PVC",
+    description: "Ekonomiczne rozwiązanie o dobrej jakości",
+    benefits: ["Atrakcyjna cena", "Łatwe w obróbce", "Dobre parametry"],
   },
   {
-    name: 'Obrzeża akrylowe',
-    description: 'Premium wykończenie z wysokim połyskiem',
-    benefits: ['Luksusowy wygląd', 'Odporne na zarysowania', 'Łatwe czyszczenie']
-  }
+    name: "Obrzeża akrylowe",
+    description: "Premium wykończenie z wysokim połyskiem",
+    benefits: [
+      "Luksusowy wygląd",
+      "Odporne na zarysowania",
+      "Łatwe czyszczenie",
+    ],
+  },
 ];
 ---
 
@@ -59,17 +81,18 @@ const edgeBandTypes = [
           <span class="mx-2">/</span>
           <span>Oklejanie płyt meblowych</span>
         </nav>
-        
+
         <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
           Oklejanie płyt meblowych
           <span class="block text-primary-300 mt-2">na maszynach Hebrock</span>
         </h1>
-        
+
         <p class="text-xl text-wood-100 mb-8 leading-relaxed">
-          Profesjonalne oklejanie krawędzi płyt meblowych na nowoczesnych niemieckich maszynach Hebrock. 
-          Zarabianie naroży, klej dopasowany do koloru płyty, natrysk do akryli.
+          Profesjonalne oklejanie krawędzi płyt meblowych na nowoczesnych
+          niemieckich maszynach Hebrock. Zarabianie naroży, klej dopasowany do
+          koloru płyty, natrysk do akryli.
         </p>
-        
+
         <CTAButton href="#kontakt" variant="primary" size="lg">
           Zamów oklejanie
         </CTAButton>
@@ -81,7 +104,9 @@ const edgeBandTypes = [
   <section class="py-20 bg-white">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2
+          class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+        >
           Najwyższa jakość oklejania
         </h2>
         <p class="text-xl text-gray-600">
@@ -90,17 +115,31 @@ const edgeBandTypes = [
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature) => (
-          <div class="text-center">
-            <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
-              </svg>
+        {
+          features.map((feature) => (
+            <div class="text-center">
+              <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={feature.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+                {feature.title}
+              </h3>
+              <p class="text-gray-600 text-sm">{feature.description}</p>
             </div>
-            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-            <p class="text-gray-600 text-sm">{feature.description}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -109,7 +148,9 @@ const edgeBandTypes = [
   <section class="py-20 bg-gray-50">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2
+          class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+        >
           Rodzaje obrzeży
         </h2>
         <p class="text-xl text-gray-600">
@@ -118,22 +159,36 @@ const edgeBandTypes = [
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {edgeBandTypes.map((type) => (
-          <div class="bg-white rounded-xl p-8 shadow-lg">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">{type.name}</h3>
-            <p class="text-gray-600 mb-6">{type.description}</p>
-            <ul class="space-y-2">
-              {type.benefits.map((benefit) => (
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                  <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          edgeBandTypes.map((type) => (
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">
+                {type.name}
+              </h3>
+              <p class="text-gray-600 mb-6">{type.description}</p>
+              <ul class="space-y-2">
+                {type.benefits.map((benefit) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg
+                      class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -142,44 +197,58 @@ const edgeBandTypes = [
   <section class="py-20 bg-white">
     <div class="section-container">
       <div class="max-w-5xl mx-auto">
-        <h2 class="font-display text-4xl font-bold text-gray-900 mb-12 text-center">
+        <h2
+          class="font-display text-4xl font-bold text-gray-900 mb-12 text-center"
+        >
           Technologia Hebrock
         </h2>
 
         <div class="space-y-6">
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Zarabianie naroży</h3>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+              Zarabianie naroży
+            </h3>
             <p class="text-gray-600">
-              Nasza okleiniarka posiada agregat do zarabiania naroży. Dzięki temu finalny produkt 
-              pozbawiony jest „zadziorów" obrzeża na styku łączeń okleiny. Nie wymaga dalszej obróbki 
-              - od razu gotowy do montażu.
+              Nasza okleiniarka posiada agregat do zarabiania naroży. Dzięki
+              temu finalny produkt pozbawiony jest „zadziorów" obrzeża na styku
+              łączeń okleiny. Nie wymaga dalszej obróbki - od razu gotowy do
+              montażu.
             </p>
           </div>
 
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Klej EVA w trzech kolorach</h3>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+              Klej EVA w trzech kolorach
+            </h3>
             <p class="text-gray-600">
-              Obrzeże kleimy klejem dopasowanym do koloru płyty! Posiadamy klej biały, bezbarwny i czarny 
-              - kleje bez wypełniaczy, co gwarantuje dużo większą jakość oklejenia i praktycznie niewidoczny 
-              złącze między płytą a obrzeżem.
+              Obrzeże kleimy klejem dopasowanym do koloru płyty! Posiadamy klej
+              biały, bezbarwny i czarny - kleje bez wypełniaczy, co gwarantuje
+              dużo większą jakość oklejenia i praktycznie niewidoczny złącze
+              między płytą a obrzeżem.
             </p>
           </div>
 
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Natrysk do akryli</h3>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+              Natrysk do akryli
+            </h3>
             <p class="text-gray-600">
-              Posiadamy specjalny natrysk do akryli. Dzięki temu nawet delikatne, cienkie obrzeże 
-              o wykończeniu połyskującym lub bardzo matowym zostanie wykończone prawidłowo, bez uszkodzeń 
-              i z idealną przyczepnością.
+              Posiadamy specjalny natrysk do akryli. Dzięki temu nawet
+              delikatne, cienkie obrzeże o wykończeniu połyskującym lub bardzo
+              matowym zostanie wykończone prawidłowo, bez uszkodzeń i z idealną
+              przyczepnością.
             </p>
           </div>
 
           <div class="bg-gray-50 rounded-xl p-6">
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Wymienne frezy</h3>
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+              Wymienne frezy
+            </h3>
             <p class="text-gray-600">
-              Dzięki wymiennym frezom w naszej okleiniarce, jesteśmy w stanie okleić krawędzie płyt akrylowych, 
-              które mają zabezpieczoną powierzchnię folią ochronną bez jej zdejmowania - oszczędność czasu 
-              i eliminacja ryzyka zarysowań.
+              Dzięki wymiennym frezom w naszej okleiniarce, jesteśmy w stanie
+              okleić krawędzie płyt akrylowych, które mają zabezpieczoną
+              powierzchnię folią ochronną bez jej zdejmowania - oszczędność
+              czasu i eliminacja ryzyka zarysowań.
             </p>
           </div>
         </div>
@@ -198,16 +267,22 @@ const edgeBandTypes = [
           Ekspresowa realizacja, wysoka jakość, konkurencyjne ceny
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+          <a
+            href="tel:577708677"
+            class="btn-primary bg-white text-primary-600 hover:bg-gray-100"
+          >
             📞 Zadzwoń: 577 708 677
           </a>
-          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-gray-900 hover:bg-white/70">
+          <a
+            href="mailto:biuro@nadamel.pl"
+            class="btn-secondary border-white text-gray-900 hover:bg-white/70"
+          >
             ✉️ biuro@nadamel.pl
           </a>
         </div>
       </div>
     </div>
   </section>
-
+  <ImageCarousel images={images} autoplay={true} interval={4000} />
   <ContactSection />
 </Layout>

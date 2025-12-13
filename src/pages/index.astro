@@ -1,16 +1,28 @@
 ---
-import BenefitsSection from '../components/BenefitsSection.astro';
-import ContactSection from '../components/ContactSection.astro';
-import Hero from '../components/Hero.astro';
-import ServicesSection from '../components/ServicesSection.astro';
-import Layout from '../layouts/Layout.astro';
+import BenefitsSection from "../components/BenefitsSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Hero from "../components/Hero.astro";
+import ImageCarousel from "../components/ImageCarousel.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import Layout from "../layouts/Layout.astro";
 
 // NOWE KOMPONENTY Z MIEJSCAMI NA ZDJĘCIA
-import ManufacturersSection from '../components/ManufacturersSection.astro';
-import TechnicalSection from '../components/TechnicalSection.astro';
+import ManufacturersSection from "../components/ManufacturersSection.astro";
+import TechnicalSection from "../components/TechnicalSection.astro";
+
+const images = [
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1494+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1496.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1500.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1505.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1507+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1510+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1512+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1513+(1).jpg",
+];
 ---
 
-<Layout 
+<Layout
   title="Usługi Stolarskie Toruń | Rozkrój, Oklejanie, Drzwi | Nadamel"
   description="Profesjonalne usługi stolarskie w Toruniu: rozkrój i oklejanie płyt meblowych na maszynach Hebrock, drzwi wewnętrzne. Krótki czas realizacji, wysoka jakość. Zadzwoń: 577 708 677"
   keywords="usługi stolarskie Toruń, rozkrój płyt meblowych, oklejanie płyt, drzwi wewnętrzne, Hebrock, stolarz Toruń, rozkrój Kronopol, rozkrój Egger"
@@ -25,7 +37,6 @@ import TechnicalSection from '../components/TechnicalSection.astro';
   <!-- USŁUGI -->
   <ServicesSection />
 
-  
   <TechnicalSection />
 
   <!-- KORZYŚCI - można tu dodać zdjęcia zespołu -->
@@ -37,19 +48,24 @@ import TechnicalSection from '../components/TechnicalSection.astro';
     Edytuj plik ManufacturersSection.astro i dodaj ścieżki do logo
   -->
   <ManufacturersSection />
-  
+
   <!-- PROCES REALIZACJI -->
   <section class="py-20 bg-gray-50">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        <div
+          class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+        >
           Jak to działa?
         </div>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2
+          class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+        >
           Prosty proces realizacji usług stolarskich
         </h2>
         <p class="text-xl text-gray-600">
-          Współpraca z nami jest prosta i przyjemna. Sprawdź, jak wygląda proces od zamówienia do odbioru.
+          Współpraca z nami jest prosta i przyjemna. Sprawdź, jak wygląda proces
+          od zamówienia do odbioru.
         </p>
       </div>
 
@@ -61,42 +77,59 @@ import TechnicalSection from '../components/TechnicalSection.astro';
         <div class="grid md:grid-cols-4 gap-8">
           <div class="text-center">
             <!-- Można zamienić gradient na zdjęcie -->
-            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+            <div
+              class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg"
+            >
               1
             </div>
-            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Kontakt</h3>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+              Kontakt
+            </h3>
             <p class="text-gray-600 text-sm">
               Skontaktuj się z nami telefonicznie, mailowo lub przez formularz
             </p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+            <div
+              class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg"
+            >
               2
             </div>
-            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Wycena</h3>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+              Wycena
+            </h3>
             <p class="text-gray-600 text-sm">
               Przygotujemy indywidualną wycenę dostosowaną do Twoich potrzeb
             </p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+            <div
+              class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg"
+            >
               3
             </div>
-            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Realizacja</h3>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+              Realizacja
+            </h3>
             <p class="text-gray-600 text-sm">
               Wykonujemy zamówienie profesjonalnie i w ekspresowym tempie
             </p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+            <div
+              class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg"
+            >
               4
             </div>
-            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Odbiór</h3>
+            <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+              Odbiór
+            </h3>
             <p class="text-gray-600 text-sm">
-              W naszej siedzibie w Toruniu odbierasz gotowy produkt najwyższej jakości
+              W naszej siedzibie w Toruniu odbierasz gotowy produkt najwyższej
+              jakości
             </p>
           </div>
         </div>
@@ -104,27 +137,41 @@ import TechnicalSection from '../components/TechnicalSection.astro';
     </div>
   </section>
 
+  <ImageCarousel images={images} autoplay={true} interval={4000} />
+
   <!-- CTA SECTION -->
   <section class="py-20 gradient-wood text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      <div
+        class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"
+      >
+      </div>
     </div>
-    
+
     <div class="section-container relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
           Skorzystaj z usług stolarskich w Toruniu
         </h2>
         <p class="text-xl text-wood-100 mb-8">
-          Skontaktuj się z nami już dziś i przekonaj się o najwyższej jakości naszych usług stolarskich. 
-          Gwarantujemy profesjonalizm i terminowość.
+          Skontaktuj się z nami już dziś i przekonaj się o najwyższej jakości
+          naszych usług stolarskich. Gwarantujemy profesjonalizm i terminowość.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100 text-lg">
+          <a
+            href="tel:577708677"
+            class="btn-primary bg-white text-primary-600 hover:bg-gray-100 text-lg"
+          >
             📞 Zadzwoń: 577 708 677
           </a>
-          <a href="#wycena" class="btn-secondary border-white text-gray-900 hover:bg-white/70 text-lg">
+          <a
+            href="#wycena"
+            class="btn-secondary border-white text-gray-900 hover:bg-white/70 text-lg"
+          >
             Wypełnij formularz
           </a>
         </div>
@@ -139,78 +186,152 @@ import TechnicalSection from '../components/TechnicalSection.astro';
     <div class="section-container">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-16">
-          <div class="inline-block bg-wood-100 text-wood-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div
+            class="inline-block bg-wood-100 text-wood-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          >
             FAQ
           </div>
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2
+            class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+          >
             Najczęściej zadawane pytania
           </h2>
         </div>
 
         <div class="space-y-6">
-          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+          <details
+            class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+          >
+            <summary
+              class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between"
+            >
               Jaki jest czas realizacji zamówienia?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Większość zamówień realizujemy w ciągu 24-48 godzin. Rozumiemy, że czas to pieniądz, 
-              dlatego stawiamy na ekspresową realizację bez uszczerbku na jakości.
+              Większość zamówień realizujemy w ciągu 24-48 godzin. Rozumiemy, że
+              czas to pieniądz, dlatego stawiamy na ekspresową realizację bez
+              uszczerbku na jakości.
             </p>
           </details>
 
-          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+          <details
+            class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+          >
+            <summary
+              class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between"
+            >
               Jakie płyty meblowe są dostępne?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Pracujemy z renomowanymi producentami: Kronopol, Kronospan, Egger, Forner. 
-              Oferujemy szeroką gamę płyt laminowanych i akrylowych w różnych kolorach i wykończeniach.
+              Pracujemy z renomowanymi producentami: Kronopol, Kronospan, Egger,
+              Forner. Oferujemy szeroką gamę płyt laminowanych i akrylowych w
+              różnych kolorach i wykończeniach.
             </p>
           </details>
 
-          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+          <details
+            class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+          >
+            <summary
+              class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between"
+            >
               Czy można składać zamówienia w weekendy?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Tak! Przyjmujemy zamówienia 7 dni w tygodniu przez formularz kontaktowy lub e-mail. 
-              Nie musisz czekać na otwarcie biura - możesz złożyć zamówienie w dowolnym momencie.
+              Tak! Przyjmujemy zamówienia 7 dni w tygodniu przez formularz
+              kontaktowy lub e-mail. Nie musisz czekać na otwarcie biura -
+              możesz złożyć zamówienie w dowolnym momencie.
             </p>
           </details>
 
-          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+          <details
+            class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+          >
+            <summary
+              class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between"
+            >
               Co wyróżnia Waszą okleiniarkę?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Pracujemy na nowoczesnej okleiniarce Hebrock z agregatem do zarabiania naroży, 
-              natrysku do akryli i wymiennymi frezami. Dzięki temu zapewniamy najwyższą jakość 
-              wykończenia bez „zadziorów" na narożach.
+              Pracujemy na nowoczesnej okleiniarce Hebrock z agregatem do
+              zarabiania naroży, natrysku do akryli i wymiennymi frezami. Dzięki
+              temu zapewniamy najwyższą jakość wykończenia bez „zadziorów" na
+              narożach.
             </p>
           </details>
 
-          <details class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-            <summary class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between">
+          <details
+            class="group bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
+          >
+            <summary
+              class="font-bold text-lg text-gray-900 cursor-pointer list-none flex items-center justify-between"
+            >
               Czy oferujecie transport/dostawę?
-              <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
               </svg>
             </summary>
             <p class="mt-4 text-gray-600">
-              Tak, możemy zorganizować transport gotowych elementów. Szczegóły ustalamy indywidualnie 
-              w zależności od lokalizacji i wielkości zamówienia. Skontaktuj się z nami, aby poznać szczegóły.
+              Tak, możemy zorganizować transport gotowych elementów. Szczegóły
+              ustalamy indywidualnie w zależności od lokalizacji i wielkości
+              zamówienia. Skontaktuj się z nami, aby poznać szczegóły.
             </p>
           </details>
         </div>

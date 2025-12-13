@@ -1,7 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTAButton from '../components/CTAButton.astro';
-import ContactSection from '../components/ContactSection.astro';
+import CTAButton from "../components/CTAButton.astro";
+import ContactSection from "../components/ContactSection.astro";
+import ImageCarousel from "../components/ImageCarousel.astro";
+import Layout from "../layouts/Layout.astro";
+
+const images = [
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1494+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1496.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1500.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1505.jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1507+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1510+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1512+(1).jpg",
+  "https://s3.eu-north-1.amazonaws.com/piszemy.com.pl/IMG_1513+(1).jpg",
+];
 ---
 
 <Layout
@@ -18,17 +30,18 @@ import ContactSection from '../components/ContactSection.astro';
           <span class="mx-2">/</span>
           <span>Cięcie i rozkrój płyt</span>
         </nav>
-        
+
         <h1 class="font-display text-5xl md:text-6xl font-bold mb-6">
           Cięcie i rozkrój
           <span class="block text-primary-300">płyt meblowych w Toruniu</span>
         </h1>
-        
+
         <p class="text-xl text-wood-100 mb-8 leading-relaxed">
-          Precyzyjny rozkrój płyt meblowych na nowoczesnych maszynach. 
-          Dokładność do 0,1mm, minimalne straty materiału, ekspresowa realizacja.
+          Precyzyjny rozkrój płyt meblowych na nowoczesnych maszynach.
+          Dokładność do 0,1mm, minimalne straty materiału, ekspresowa
+          realizacja.
         </p>
-        
+
         <CTAButton href="#kontakt" variant="primary" size="lg">
           Zamów rozkrój
         </CTAButton>
@@ -41,40 +54,84 @@ import ContactSection from '../components/ContactSection.astro';
     <div class="section-container">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="text-center">
-          <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div
+            class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+          >
             <div class="text-white text-2xl font-bold">±0.1</div>
           </div>
-          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Precyzja cięcia</h3>
+          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+            Precyzja cięcia
+          </h3>
           <p class="text-gray-600 text-sm">Dokładność do 0,1 mm</p>
         </div>
 
         <div class="text-center">
-          <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          <div
+            class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">24-48h realizacja</h3>
+          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+            24-48h realizacja
+          </h3>
           <p class="text-gray-600 text-sm">Ekspresowe wykonanie</p>
         </div>
 
         <div class="text-center">
-          <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          <div
+            class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Minimalne straty</h3>
+          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+            Minimalne straty
+          </h3>
           <p class="text-gray-600 text-sm">Optymalizacja rozkroju</p>
         </div>
 
         <div class="text-center">
-          <div class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          <div
+            class="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+          >
+            <svg
+              class="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              ></path>
             </svg>
           </div>
-          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">Zamówienia 24/7</h3>
+          <h3 class="font-display text-lg font-bold text-gray-900 mb-2">
+            Zamówienia 24/7
+          </h3>
           <p class="text-gray-600 text-sm">Online przez formularz</p>
         </div>
       </div>
@@ -85,16 +142,21 @@ import ContactSection from '../components/ContactSection.astro';
   <section class="py-20 bg-gray-50">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2
+          class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+        >
           Zakres usług cięcia
         </h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div class="card p-8">
-          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Rozkrój formatek</h3>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">
+            Rozkrój formatek
+          </h3>
           <p class="text-gray-600 mb-4">
-            Przygotujemy dowolne formatki z płyty laminowanej lub akrylowej według Twoich wymiarów.
+            Przygotujemy dowolne formatki z płyty laminowanej lub akrylowej
+            według Twoich wymiarów.
           </p>
           <ul class="space-y-2 text-sm text-gray-700">
             <li>✓ Dowolne wymiary</li>
@@ -104,7 +166,9 @@ import ContactSection from '../components/ContactSection.astro';
         </div>
 
         <div class="card p-8">
-          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Frezowanie</h3>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">
+            Frezowanie
+          </h3>
           <p class="text-gray-600 mb-4">
             Wykonamy nafrezowania płyty pod HDF, frezowanie pod uchwyty liniowe.
           </p>
@@ -116,9 +180,12 @@ import ContactSection from '../components/ContactSection.astro';
         </div>
 
         <div class="card p-8">
-          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Otworowania</h3>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">
+            Otworowania
+          </h3>
           <p class="text-gray-600 mb-4">
-            Przygotujemy blaty z otworowaniami, łączeniami pod śruby, frezowaniem "na łyżwę".
+            Przygotujemy blaty z otworowaniami, łączeniami pod śruby,
+            frezowaniem "na łyżwę".
           </p>
           <ul class="space-y-2 text-sm text-gray-700">
             <li>✓ Otwory pod zlewozmywaki</li>
@@ -128,7 +195,9 @@ import ContactSection from '../components/ContactSection.astro';
         </div>
 
         <div class="card p-8">
-          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Płyty specjalne</h3>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">
+            Płyty specjalne
+          </h3>
           <p class="text-gray-600 mb-4">
             Cięcie płyt akrylowych z zabezpieczeniem folii ochronnej.
           </p>
@@ -155,11 +224,13 @@ import ContactSection from '../components/ContactSection.astro';
       </div>
 
       <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-        {['Kronopol', 'Kronospan', 'Egger', 'Forner'].map((brand) => (
-          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 text-center shadow-md">
-            <h3 class="font-bold text-xl text-gray-900">{brand}</h3>
-          </div>
-        ))}
+        {
+          ["Kronopol", "Kronospan", "Egger", "Forner"].map((brand) => (
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 text-center shadow-md">
+              <h3 class="font-bold text-xl text-gray-900">{brand}</h3>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -175,16 +246,22 @@ import ContactSection from '../components/ContactSection.astro';
           Szybko, precyzyjnie, profesjonalnie
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="tel:577708677" class="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+          <a
+            href="tel:577708677"
+            class="btn-primary bg-white text-primary-600 hover:bg-gray-100"
+          >
             📞 577 708 677
           </a>
-          <a href="mailto:biuro@nadamel.pl" class="btn-secondary border-white text-gray-900 hover:bg-white/70">
+          <a
+            href="mailto:biuro@nadamel.pl"
+            class="btn-secondary border-white text-gray-900 hover:bg-white/70"
+          >
             ✉️ biuro@nadamel.pl
           </a>
         </div>
       </div>
     </div>
   </section>
-
+  <ImageCarousel images={images} autoplay={true} interval={4000} />
   <ContactSection />
 </Layout>
