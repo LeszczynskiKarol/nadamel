@@ -1,4 +1,4 @@
 User-agent: \*
 Allow: /
 
-Sitemap: https://nadamel.pl/sitemap-index.xml
+Sitemap: https://www.nadamel.pl/sitemap-index.xml
